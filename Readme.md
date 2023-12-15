@@ -11,7 +11,7 @@
 -----
 
 ### ER (Entity Relationship Diagram) Diagram
-<img src="./src/img/erdStockApi.png" width="650" height="500" alt="ERD"></img> 
+<img src="./src/img/erdStockApi.png" width="850" height="500" alt="ERD"></img> 
 
 ---
 
