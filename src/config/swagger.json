@@ -1,0 +1,30 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Stock Management API",
+    "desciption": "Stock Management System",
+    "termsOfService": "http://127.0.0.1:8000/",
+    "contact": {
+      "name": "DGKN",
+      "email": "sakardogukan@gmail.com"
+    },
+    "license": {
+      "name": "ISC"
+    },
+    "description": ""
+  },
+  "host": "127.0.0.1:8000",
+  "basePath": "/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {}
+}
