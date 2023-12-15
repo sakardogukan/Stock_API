@@ -1,7 +1,8 @@
 {
   "name": "stock_api",
   "version": "1.0.0",
-  "description": "Node.Js | Express.Js | Mongoose - MongoDB SQL | Authorization And Permissions with Simple Token | Password Crypto | Documentation: Swagger/Redoc/Json | Logging",
+  "title": "Stock Management API",
+  "description": "Stock Management System",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,10 +14,14 @@
   "email": "sakardogukan@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
-    "mongoose": "^8.0.3"
-  },
-  "devDependencies": {}
+    "mongoose": "^7.6.2",
+    "morgan": "^1.10.0",
+    "redoc-express": "^2.1.0",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.0"
+  }
 }
