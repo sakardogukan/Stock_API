@@ -3,13 +3,13 @@
 
 const router = require('express').Router()
 
-router.all('/', (req, res) => {
-    res.send({
-        swagger: '/documents/swagger',
-        redoc: '/documents/redoc',
-        json: '/documents/json',
-    })
-})
+// router.all('/', (req, res) => {
+//     res.send({
+//         swagger: '/documents/swagger',
+//         redoc: '/documents/redoc',
+//         json: '/documents/json',
+//     })
+// })
 
 //! JSON:
 router.use('/json', (req, res) => {
