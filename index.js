@@ -50,7 +50,7 @@ app.all('/', (req, res) => {
         message: 'Welcome to Stock API',
         documents: {
             swagger: '/documents/swagger',
-            redoc: '/document/redoc',
+            redoc: '/documents/redoc',
             json: '/documents/json'
         }
     })
