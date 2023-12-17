@@ -1,6 +1,6 @@
 "use strict"
 
-/* ---------------- USER  ROUTE ------------------- */
+/* ---------------- USER ROUTE ------------------- */
 
 const router = require('express').Router()
 
