@@ -30,9 +30,9 @@ module.exports = (req, res, next) => {
     //! Run. Searching & Sorting & Paginations engine for model:
     res.getModelList = async function (Model, filters = {}, populate = null) {
         const filtersAndSearch = { ...filters, ...search }
-        return await Model.find(filtersAndSearch).sort(sort).skip(skip).limit(limit).populate(populate)
-        // For React Project:
-        // return await Model.find(filtersAndSearch).populate(populate)
+        // return await Model.find(filtersAndSearch).sort(sort).skip(skip).limit(limit).populate(populate)
+        // For REACT Project:
+        return await Model.find(filtersAndSearch).populate(populate)
     }
 
     //! Details:
