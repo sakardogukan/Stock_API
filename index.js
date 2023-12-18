@@ -32,6 +32,8 @@ dbConnection()
 app.use(express.json())
 
 
+//? Check Authentication:
+app.use(require('./src/middlewares/authentication'))
 
 //? Run Logger:
 app.use(require('./src/middlewares/logger'))
@@ -52,7 +54,8 @@ app.all('/', (req, res) => {
             swagger: '/documents/swagger',
             redoc: '/documents/redoc',
             json: '/documents/json'
-        }
+        },
+        user: req.user
     })
 })
 
@@ -66,3 +69,6 @@ app.use(require('./src/middlewares/errorHandler'))
 
 //? Run Server:
 app.listen(PORT, HOST, () => console.log(`http://${HOST}:${PORT}`))
+
+//? Synchronization:
+// require('./src/helpers/sync')()
