@@ -6,7 +6,7 @@ const Purchase = require('../models/purchase')
 
 module.exports = {
 
-    list: async (req,res) => {
+    list: async (req, res) => {
         /*
             #swagger.tags = ["Purchases"]
             #swagger.summary = "List Purchases"
@@ -19,7 +19,7 @@ module.exports = {
                 </ul>
             `
         */
-        const data = await res.getModelList(Purchase)
+        const data = await res.getModelList(Purchase, {}, ['firm_id', 'brand_id', 'product_id'])
         // res.status(200).send({
         //     error: false,
         //     details: await res.getModelListDetails(data),
@@ -29,7 +29,7 @@ module.exports = {
         res.status(200).send(data)
 
     },
-    create: async (req,res) => {
+    create: async (req, res) => {
         /*
             #swagger.tags = ["Purchases"]
             #swagger.summary = "Create Purchase"
@@ -40,26 +40,29 @@ module.exports = {
             }
         */
 
+        // Auto add user_id to req.body:
+        req.body.user_id = req.user?._id
+
         const data = await Purchase.create(req.body)
         res.status(201).send({
             error: false,
             data
         })
     },
-    read: async (req,res) => {
+    read: async (req, res) => {
         /*
             #swagger.tags = ["Purchases"]
             #swagger.summary = "Get Single Purchase"
         */
 
-        const data = await Purchase.findOne({ _id: req.params.id })
+        const data = await Purchase.findOne({ _id: req.params.id }).populate(['firm_id', 'brand_id', 'product_id'])
         res.status(200).send({
             error: false,
             data
         })
 
     },
-    update: async (req,res) => {
+    update: async (req, res) => {
         /*
             #swagger.tags = ["Purchases"]
             #swagger.summary = "Update Purchase"
@@ -77,7 +80,7 @@ module.exports = {
             new: await Purchase.findOne({ _id: req.params.id })
         })
     },
-    delete: async (req,res) => {
+    delete: async (req, res) => {
         /*
             #swagger.tags = ["Purchases"]
             #swagger.summary = "Delete Purchase"
