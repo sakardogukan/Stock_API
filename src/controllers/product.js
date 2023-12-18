@@ -6,7 +6,7 @@ const Product = require('../models/product')
 
 module.exports = {
 
-    list: async (req,res) => {
+    list: async (req, res) => {
         /*
             #swagger.tags = ["Products"]
             #swagger.summary = "List Products"
@@ -19,7 +19,8 @@ module.exports = {
                 </ul>
             `
         */
-        const data = await res.getModelList(Product)
+        const data = await res.getModelList(Product, {}, ['category_id', 'brand_id'])
+
         // res.status(200).send({
         //     error: false,
         //     details: await res.getModelListDetails(data),
@@ -29,7 +30,7 @@ module.exports = {
         res.status(200).send(data)
 
     },
-    create: async (req,res) => {
+    create: async (req, res) => {
         /*
             #swagger.tags = ["Products"]
             #swagger.summary = "Create Product"
@@ -46,20 +47,20 @@ module.exports = {
             data
         })
     },
-    read: async (req,res) => {
+    read: async (req, res) => {
         /*
             #swagger.tags = ["Products"]
             #swagger.summary = "Get Single Product"
         */
 
-        const data = await Product.findOne({ _id: req.params.id })
+        const data = await Product.findOne({ _id: req.params.id }).populate(['category_id', 'brand_id'])
         res.status(200).send({
             error: false,
             data
         })
 
     },
-    update: async (req,res) => {
+    update: async (req, res) => {
         /*
             #swagger.tags = ["Products"]
             #swagger.summary = "Update Product"
@@ -77,7 +78,7 @@ module.exports = {
             new: await Product.findOne({ _id: req.params.id })
         })
     },
-    delete: async (req,res) => {
+    delete: async (req, res) => {
         /*
             #swagger.tags = ["Products"]
             #swagger.summary = "Delete Product"
