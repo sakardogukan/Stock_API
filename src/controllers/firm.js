@@ -2,7 +2,7 @@
 
 /* ------------------- FIRM CONTROLLER -------------- */
 
-const Firm = require('../models/Firm')
+const Firm = require('../models/firm')
 
 module.exports = {
 
